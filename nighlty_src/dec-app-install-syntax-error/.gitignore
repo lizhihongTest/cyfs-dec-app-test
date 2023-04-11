@@ -8,5 +8,4 @@ node_modules
 
 .idea
 yarn.lock
-*.js
 /cyfs
