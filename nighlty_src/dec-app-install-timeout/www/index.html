@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <link rel="shortcut icon" href="./img/bucky-icon.ico" type="image/x-icon">
+    <title>Web3 starts with CYFS</title>
+    <meta name="keywords" content="web3 、CYFS">
+    <meta name="description" content="CYFS is a community-run technology to completely realize the greatest ambition of Web3. The vision of CYFS is to reshape the relations of production in digital world by making users truly have the ownership of their accounts, digital assets, data, and the internet services they use.">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index_en.css">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WGVN18K66"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6WGVN18K66');
+    </script>
+</head>
+<body>
+    <div class="main_en">
+      <div class="cyfs_logo">
+        <img src="./img/cyfs_logo.png" alt="">
+      </div>
+      <!-- <div class="background1"></div> -->
+      <div class="background2"></div>
+      <div class="background3"></div>
+      <div class="background4"></div>
+      <div class="background5"></div>
+      <div class="background6"></div>
+      <div class="background7"></div>
+      <div class="background8"></div>
+      <div class="background9"></div>
+      <div class="background10"></div>
+      <div class="background11"></div>
+      <div class="first-part container_en">
+        <div class="content">
+          <h2 class="content_h2">Web3 starts with CYFS</h2>
+          <div class="desc">
+            CYFS is the next-generation decentralized technology to build a Web3 with complete decentralization and freedom by upgrading the basic protocol of Web (TCP/IP+DNS+HTTP). With CYFS, everyone will be able to own their assets, data and applications.
+          </div>
+        </div>
+      </div>
+      <canvas id="webgl" class="webgl" width="1920" height="800" style="margin-top: 300px;"></canvas>
+      <div class="third-part container_en">
+        <ul>
+          <li>
+            <div class="desc">
+              <h2>You can speak<br/> freely and be true<br/> to yourself.</h2>
+              <p>
+                The platform will not ban any account because you no longer rely on any centralized server. You are the only one to manage the account, and users can share their unique views on things or chat about their daily life at will.
+              </p>
+            </div>
+            <img style="width: 693px;height: 583px;" src="./img/index_en_public.gif" alt="">
+          </li>
+          <li>
+            <img src="./img/index_en_own_data.gif" alt="" style="width: 745px;height: 627px;margin-top: -80px;">
+            <div class="desc">
+              <h2>You can naturally own your data.</h2>
+              <p>
+                Have you ever been in trouble by the loss of personal data information due to problems such as service downtime and data inaccessibility? In the future, your data will store securely in your own device, or a device you trust, and the rights to the data belong to you only.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="desc">
+              <h2>You can enjoy any services permanently.</h2>
+              <p>
+                We collapse the traditional Internet model, which means that all application data transferred by your personal sever in CYFS ecosystem. As long as your personal device exists, application services will never shut down.
+              </p>
+            </div>
+            <img  style="width: 693px;height: 583px;margin-top: -80px;" src="./img/index_en_services.gif" alt="">
+          </li>
+          <li>
+            <img src="./img/index_en_value_data.gif" alt=""  style="width: 731px;height: 615px;margin-top: -80px;">
+            <div class="desc">
+              <h2>You can value<br/> your data.</h2>
+              <p>
+                Your data will be able to "make money" for you from now on, and every piece of your data is a valuable NFT. Anyone can use their digital currency to reward the articles, pictures, videos, and anything you shared—also the right to transfer the benefit to others.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="web_btn_box">
+        <a href="https://www.cyfs.com/index" target="_blank" ></a>
+      </div>
+<div class="footer_en">
+  <div class="container_en">
+      <div class="logo">
+          <img src="./img/common/CYFS_logo.png" alt="">
+          <div class="logo-info">Copyright © 2022 CYFS Core Dev Team. All rights reserved</div>
+      </div>
+      <div class="contact">
+          <div class="contact-left">
+              <a href="https://github.com/buckyos/CYFS" target="_blank">
+                 <img src="./img/common/git3.png" alt="">
+              </a>
+              <a href="https://discord.gg/cyfs" target="_blank">
+                 <img src="./img/common/discord3.png" alt="">
+              </a>
+              <a href="https://twitter.com/CYFSTech" target="_blank">
+                <img src="./img/common/twitter3.png" alt="">
+              </a>
+          </div>
+          <div class="line"></div>
+          <div class="footer_lastest_join_us">
+              <a href="https://www.cyfs.com/na.html" target="_blank" class="na">Join us to build Web3 together</a>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+ 
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/gl.js"></script>
+    <script src="./js/video.min.js"></script>
+    <script id="vertexShader" type="x-shader/x-vertex">
+      attribute vec4 position;
+
+      attribute float scale;
+
+      uniform mat4 modelViewMatrix;//
+      uniform mat4 projectionMatrix;//
+      void main() {
+        vec4 mvPosition = modelViewMatrix * position;
+
+        gl_PointSize = scale * 1.0 * ( 400.0 / - mvPosition.z );
+
+        gl_Position = projectionMatrix * mvPosition;
+      }
+    </script>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      void main() {
+        if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.49 ) discard;
+        gl_FragColor = vec4(0.01,0.67,0.55,1.0);
+      }
+    </script>
+<script src="js/index_en.js?94c13c57f852cf24f5e2"></script><script src="js/common_en.js?94c13c57f852cf24f5e2"></script></body>
+</html>
+
