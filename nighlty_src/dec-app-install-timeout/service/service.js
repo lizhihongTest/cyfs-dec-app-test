@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const check_cmd_1 = require("./check_cmd");
 const DEC_ID = "9tGpLNnSN39JEAfMzKs1GFCe5GsPhbRXt49fCnL84A6g";
 const cyfs = require('cyfs-sdk');
+const path = require('path');
+const ChildProcess = require('child_process');
 //  This is the entry point of the service
 async function main() {
 	cyfs.clog.enable_file_log({
@@ -15,15 +17,18 @@ async function main() {
     if (install) {
         // If running 'node service.js --install', the install returned by check_cmd_and_exec will be true. 
 		// Here, some initialization work is usually done for the first installation or after upgrading.
-		let install_time = 16;
-		while(install_time>0){
-			console.info(`dec app is installing,wait 60s.`)
-			await cyfs.sleep(60*1000);
-			install_time = install_time - 1;
-		}
-		console.info(`dec app install finished!`)
-		// At this stage, check_cmd_and_exec will not maintain and check the process lock, and the process needs to exit actively after initialization.
-		
+		let run = new Promise(async(resolve)=>{
+			let  child_process = ChildProcess.exec(`node ${path.join(__dirname,"wait_min_process.js")}`)
+			child_process.unref();
+			child_process.on('data', (data) => {
+				console.info(` wait_min_process.js console : ${data}`)
+			});
+			child_process.on('exit', (code, singal) => {
+				console.info(` wait_min_process.js exit`);
+				resolve("run finshed") 
+			});
+		})
+		await run;
         process.exit(0);
     }
     

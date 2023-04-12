@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "child_process": "^1.0.2",
     "cyfs-sdk": "npm:cyfs-sdk-nightly@0.6.2"
   }
 }
