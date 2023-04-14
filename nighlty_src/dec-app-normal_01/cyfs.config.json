@@ -1,8 +1,8 @@
 {
   "config_version": 1,
-  "app_name": "dec-app-uninstall-remove-occupied",
-  "version": "1.0.5",
-  "description": "",
+  "app_name": "dec-app-normal_01",
+  "version": "1.0.4",
+  "description": "A standard DEC APP demo is used to test various scenarios",
   "icon": "",
   "service": {
     "pack": [
@@ -32,5 +32,5 @@
   "ext_info": {
     "medias": []
   },
-  "app_id": "9tGpLNnH1nXE3Ku2CgrQuc3JggtJuvAM3sP3Ype33qSv"
+  "app_id": "9tGpLNnPAtaYRNwPFKFsidrbtCXZWEahqyXjgzbQMHs5"
 }

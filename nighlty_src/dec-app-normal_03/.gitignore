@@ -1,0 +1,12 @@
+dist
+node_modules
+.vscode
+.bucky
+*.map
+/.cyfs/owner.json
+!webpack.config.js
+
+.idea
+yarn.lock
+*.js
+/cyfs
