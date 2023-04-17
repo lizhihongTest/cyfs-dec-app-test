@@ -1,7 +1,7 @@
 {
   "config_version": 1,
-  "app_name": "dec-app-command-wait2min",
-  "version": "1.0.11",
+  "app_name": "dec-app-service-auto-exit",
+  "version": "1.0.1",
   "description": "",
   "icon": "",
   "service": {
@@ -32,5 +32,5 @@
   "ext_info": {
     "medias": []
   },
-  "app_id": "9tGpLNndpfRjUF59SsZidVaPuPd8QNFJusQKH8genY3Q"
+  "app_id": "9tGpLNnYJZrs4woomnUf3QoadQgZQV6HjwoN5WPUpjH5"
 }

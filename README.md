@@ -122,19 +122,45 @@ pub enum AppLocalStatusCode {
 + DEC APP卸载流程
 
 ## DEC APP 操作异常中断及恢复
-+ DEC APP Installing 过程中 下载文件被中断,恢复流程
-  
-+ DEC APP Installing 过程中 npm i被中断,恢复流程
+
+### DEC APP Installing 过程中 下载文件被中断,恢复流程
+
++ Windows OOD
+测试结果: 重新开始Install流程，且Install 后自动调用Start,运行正常。
+
++ Linux OOD
+测试结果: 重新开始Install流程，且Install 后自动调用Start,运行正常。
+
+###  DEC APP Installing 过程中 npm i被中断,恢复流程
+
++ Windows OOD
+测试结果: issuse: #207 
+
++ Linux OOD
+测试结果: 重新开始Install流程，且Install 后自动调用Start,运行正常。
  
-+ DEC APP Installing 过程中node service.js --install被中断,恢复流程
+###  DEC APP Installing 过程中node service.js --install被中断,恢复流程 
 
-+ DEC APP Starting 过程中被中断,恢复流程
++ Windows OOD
+测试结果：重新开始Install流程，且Install 后自动调用Start,运行正常。
 
-+ DEC APP Stopping 过程中被中断,恢复流程
++ Linux OOD
+测试结果：重新开始Install流程，且Install 后自动调用Start,运行正常。
 
-+ DEC APP Uninstalling 过程中被中断,恢复流程
+###  DEC APP Starting 过程中被中断,恢复流程
 
-+ DEC APP Running 过程中被中断,重新启动流程
+
+###  DEC APP Stopping 过程中被中断,恢复流程
+
+###  DEC APP Uninstalling 过程中被中断,恢复流程
+
+###  DEC APP Running 过程中被中断,重新启动流程
+
++ Windows OOD
+测试结果：重新开始Stop->Start流程,运行正常。
+
+
+
 
 ## DEC APP 操作重复提交
 
@@ -142,6 +168,7 @@ pub enum AppLocalStatusCode {
 初始状态能进行Install，无法进行Start/Stop, 因此只考虑Install/Uninstall 
 
 + Install 操作Init状态重复提交Install
+
 + Install 操作Installing状态-下载文件中的重复提交Install
 + Install 操作Installing状态-npm i中的重复提交Install
 + Install 操作Installing状态-node service.js --install中的重复提交Install
@@ -157,3 +184,5 @@ pub enum AppLocalStatusCode {
 + Start 操作Starting状态中的重复提交
 + Stop 操作Stopping状态中的重复提交
 + Uninstall 操作Uninstalling状态中的重复提交
+
+  

@@ -23,6 +23,11 @@ exports.check_cmd_and_exec = void 0;
 const Path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
 const cyfs = require('cyfs-sdk');
+const DEC_ID = "9tGpLNndpfRjUF59SsZidVaPuPd8QNFJusQKH8genY3Q-operation";
+cyfs.clog.enable_file_log({
+    name: "operation-log",
+    dir: cyfs.get_app_log_dir(DEC_ID),
+});
 function get_cyfs_root_path() {
     if (process.platform === "win32") {
         return "c:\\cyfs";
@@ -84,6 +89,7 @@ class PidLock {
         if (old_pid !== undefined) {
             return false;
         }
+        console.info(`write ${process.pid.toString()} to ${his.lock_file_path}`)
         fs.writeFileSync(this.lock_file_path, process.pid.toString());
         return true;
     }
@@ -95,6 +101,7 @@ async function wait2min(){
         console.info(`run command.... ${run_time}....sleep 10 s`)
         await cyfs.sleep(10000)
     }
+    return;
 }
 
 // 提供基础的标准参数处理
@@ -115,16 +122,22 @@ async function check_cmd_and_exec(name) {
     let action_arg = process.argv[2];
     switch (action_arg) {
         case "--install":
-            await wait2min();
+            console.info(`begin run install....`)
+            //await wait2min();
             return true;
         case "--stop":
-            await wait2min();
+            console.info(`begin run stop....`)
+            //await wait2min();
             pid_lock.stop();
+            //await cyfs.sleep(2000);
             process.exit(0);
         case "--status":
             {
+                console.info(`begin get status....`)
                 let pid = pid_lock.check();
-                if (pid === undefined) {
+                console.info(`get status result = ${pid}`)
+                //await cyfs.sleep(2000);
+                if (pid == undefined) {
                     process.exit(0);
                 }
                 else {
@@ -134,8 +147,14 @@ async function check_cmd_and_exec(name) {
         // 默认都按照--start来对应
         default:
             {
+                console.info(`begin run start....`)
+                while(true){
+                    await wait2min();
+                }
+                
                 if (!pid_lock.ensure()) {
                     console.log("process already exists, exit.");
+                    //await cyfs.sleep(2000);
                     process.exit(0);
                 }
                 return false;

@@ -24,7 +24,7 @@ async function main() {
     let stack = cyfs.SharedCyfsStack.open_default()
     await stack.online();
     while(true){
-        cyfs.sleep(60000);
+        await cyfs.sleep(60000);
         console.info(`dec service is running,now = ${Date.now()}`)
     }
 }
